@@ -2,27 +2,19 @@
 //  BoardTile.cpp
 //  BoardGame
 //
-//  Created by Salmon on 2015. 1. 20..
+//  Created by Salmon on 2015. 2. 14..
 //
 //
-#include "cocos2d.h"
+
 #include "BoardTile.h"
 
-
-BoardTile::BoardTile(int _type, int _player)
-{
-    itsType = _type;
-    itsPlayer = _player;
+BoardTile::BoardTile() {
     itsPiece = NULL;
-    itsMarker = NULL;
 }
-BoardTile::~BoardTile()
-{
-}
-BoardTile* BoardTile::createBoardTile(const char &pieceName, int _type, int _player)
-{
-    BoardTile * tile = new BoardTile(_type,_player);
-    if(tile && tile->initWithPieceName(pieceName))
+BoardTile::~BoardTile() {}
+BoardTile* BoardTile::createBoardTile() {
+    BoardTile * tile = new BoardTile();
+    if(tile && tile->init())
     {
         tile->autorelease();
         return tile;
@@ -30,67 +22,21 @@ BoardTile* BoardTile::createBoardTile(const char &pieceName, int _type, int _pla
     CC_SAFE_DELETE(tile);
     return NULL;
 }
-bool BoardTile::initWithPieceName(const char &pieceName)
-{
-    itsPiece = cocos2d::Sprite::create(&pieceName);
-    itsPiece->setAnchorPoint(cocos2d::Vec2(0,0));
-    itsPiece->setPosition(cocos2d::Vec2(0,0));
-    this->addChild(itsPiece);
-    itsPiece->retain();
-    itsMarker = cocos2d::Sprite::create("mark.png");
-    itsMarker->setAnchorPoint(cocos2d::Vec2(0,0));
-    itsMarker->setVisible(false);
-    this->addChild(itsMarker);
-    itsMarker->retain();
-    return true;
-}
-bool BoardTile::initWithEmptyTile()
-{
-    itsMarker = cocos2d::Sprite::create("mark.png");
-    itsMarker->setAnchorPoint(cocos2d::Vec2(0,0));
-    itsMarker->setVisible(false);
-    this->addChild(itsMarker);
-    itsMarker->retain();
-    return true;
-}
-BoardTile* BoardTile::createEmptyTile()
-{
-    BoardTile * tile = new BoardTile(0,0);
-    if(tile && tile->initWithEmptyTile())
-    {
-        tile->autorelease();
-        return tile;
+int BoardTile::AddPiece(BoardPiece * _piece) {
+    if(_piece) {
+        RemovePiece();
+        itsPiece = _piece;
+        this->addChild(itsPiece);
     }
-    CC_SAFE_DELETE(tile);
-    return NULL;
+    return 0;
 }
-void BoardTile::ClearTile()
-{
-    if(itsPiece != NULL) {
-        removeChild(itsPiece);
+int BoardTile::RemovePiece() {
+    if(itsPiece) {
+        this->removeChild(itsPiece);
+        itsPiece = NULL;
     }
-    itsPiece = NULL;
-    itsType = 0;
-    itsPlayer = 0;
+    return 0;
 }
-void BoardTile::Mark()
-{
-    itsMarker->setVisible(true);
+BoardPiece* BoardTile::GetBoardPiece() {
+    return itsPiece;
 }
-void BoardTile::UnMark()
-{
-    itsMarker->setVisible(false);
-}
-bool BoardTile::IsMarked()
-{
-    return itsMarker->isVisible();
-}
-int BoardTile::GetType()
-{
-    return itsType;
-}
-int BoardTile::GetPlayer()
-{
-    return itsPlayer;
-}
-

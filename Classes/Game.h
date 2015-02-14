@@ -9,7 +9,7 @@
 #ifndef __BoardGame__Game__
 #define __BoardGame__Game__
 
-#include "Board.h"
+#include "ChessBoard.h"
 class Game : public ChessBoard
 {
 protected:

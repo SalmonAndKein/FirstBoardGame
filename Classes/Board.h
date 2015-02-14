@@ -2,7 +2,7 @@
 //  Board.h
 //  BoardGame
 //
-//  Created by Salmon on 2015. 1. 13..
+//  Created by Salmon on 2015. 2. 13..
 //
 //
 
@@ -12,38 +12,23 @@
 #include "cocos2d.h"
 #include "BoardTile.h"
 
-#define TILECOUNTMAX_X 8
-#define TILECOUNTMAX_Y 8
-#define LENGTH 82
-
-class ChessBoard : public cocos2d::Sprite {
+class Board : public cocos2d::Sprite {
 protected:
-    bool bReset;
-    BoardTile * tiles[TILECOUNTMAX_Y][TILECOUNTMAX_X];
+    cocos2d::Vec2 itsSize;
+    cocos2d::Vec2 itsIndex;
+    //int size_x, size_y, count_x, count_y;
+    BoardTile *** itsTiles;
 protected:
-    bool initWithImageName(const std::string &filename);
-    bool AddTileTo(BoardTile* tile, int _x, int _y);
-    BoardTile* GetTile(int x, int y);
-    BoardTile* GetTile(cocos2d::Vec2 &pos);
-    bool SwapTile(cocos2d::Vec2 &pos1, cocos2d::Vec2 &pos2);
-    bool SwapTile(int x1, int y1, int x2, int y2);
-    bool RemoveTile(cocos2d::Vec2 &pos);
-    bool RemoveTile(int x, int y);
-    void ClearBoard();
-    void ClearAllMarker();
-protected:
-    bool CheckIndex(int x, int y);
-    float ConvertIndexToPosition_X(int index);
-    float ConvertIndexToPosition_Y(int index);
-    int ConvertPositionToIndex_X(float position);
-    int ConvertPositionToIndex_Y(float position);
+    Board(cocos2d::Vec2, cocos2d::Vec2);
+    ~Board();
+    bool CheckIndex(cocos2d::Vec2&);
+    bool CheckPosition(cocos2d::Vec2&);
 public:
-    ChessBoard();
-    ~ChessBoard();
-    static ChessBoard* createWithBoardImage(const std::string &filename);
-    void ResetBoard();
-    bool MoveTile(cocos2d::Vec2 &pos1, cocos2d::Vec2 &pos2);
+    static Board* createBoard();
+    BoardTile* GetTileByIndex(cocos2d::Vec2);
+    BoardTile* GetTileByPosition(cocos2d::Vec2);
+    cocos2d::Vec2 GetMaxSize();
+    cocos2d::Vec2 GetMaxIndex();
 };
-
 
 #endif /* defined(__BoardGame__Board__) */
