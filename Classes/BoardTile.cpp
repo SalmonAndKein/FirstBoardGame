@@ -23,20 +23,20 @@ BoardTile* BoardTile::createBoardTile() {
     return NULL;
 }
 int BoardTile::AddPiece(BoardPiece * _piece) {
-    if(_piece) {
-        RemovePiece();
-        itsPiece = _piece;
-        this->addChild(itsPiece);
-    }
-    return 0;
+    if(_piece)
+        RemovePiece(itsPiece);
+    itsPiece = _piece;
+    this->addChild(itsPiece);
+    return 1;
 }
-int BoardTile::RemovePiece() {
-    if(itsPiece) {
+int BoardTile::RemovePiece(BoardPiece* _removePiece) {
+    if(itsPiece == _removePiece) {
         this->removeChild(itsPiece);
         itsPiece = NULL;
+        return 1;
     }
     return 0;
 }
-BoardPiece* BoardTile::GetBoardPiece() {
+BoardPiece* BoardTile::GetPiece() {
     return itsPiece;
 }

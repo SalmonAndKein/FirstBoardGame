@@ -7,25 +7,6 @@
 //
 
 #include "Game.h"
-/*
-bool Game::MoveTile(cocos2d::Vec2 &pos1, cocos2d::Vec2 &pos2)
-{
-    auto srcTile = GetTile(pos1);
-    auto dstTile = GetTile(pos2);
-    if(srcTile == NULL && dstTile == NULL)
-    {
-        return false;
-    }
-    if(dstTile && dstTile->GetType() != 0)
-    {
-        if(dstTile->GetType() == 'K' || dstTile->GetType() == 'k') {
-            GameOver(dstTile->GetPlayer());
-        }
-        dstTile->ClearTile();
-    }
-    return SwapTile(pos1, pos2);
-}
- */
 int Game::Search(cocos2d::Vec2 &pos)
 {
     int player = GetTile(pos)->GetPlayer();

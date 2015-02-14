@@ -19,8 +19,8 @@ protected:
 public:
     static BoardTile* createBoardTile();
     int AddPiece(BoardPiece*);
-    int RemovePiece();
-    BoardPiece* GetBoardPiece();
+    int RemovePiece(BoardPiece*);
+    BoardPiece* GetPiece();
 };
 
 
