@@ -22,20 +22,24 @@ BoardTile* BoardTile::createBoardTile() {
     CC_SAFE_DELETE(tile);
     return NULL;
 }
-int BoardTile::AddPiece(BoardPiece * _piece) {
-    if(_piece)
-        RemovePiece(itsPiece);
-    itsPiece = _piece;
-    this->addChild(itsPiece);
-    return 1;
+bool BoardTile::AddPiece(BoardPiece * _piece) {
+    if(itsPiece == NULL) {
+        itsPiece = _piece;
+        itsPiece->setAnchorPoint(cocos2d::Vec2(0,0));
+        itsPiece->setPosition(cocos2d::Vec2(0,0));
+        this->addChild(itsPiece);
+        return true;
+    } else {
+        return false;
+    }
 }
-int BoardTile::RemovePiece(BoardPiece* _removePiece) {
-    if(itsPiece == _removePiece) {
+bool BoardTile::RemovePiece(BoardPiece* _removePiece) {
+    if(itsPiece != NULL && itsPiece == _removePiece) {
         this->removeChild(itsPiece);
         itsPiece = NULL;
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }
 BoardPiece* BoardTile::GetPiece() {
     return itsPiece;

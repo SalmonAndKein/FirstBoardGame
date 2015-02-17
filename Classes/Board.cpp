@@ -7,8 +7,7 @@
 //
 
 #include "Board.h"
-
-
+Board::Board() {}
 Board::Board(cocos2d::Vec2 inputSize, cocos2d::Vec2 inputIndex) {
     if(inputSize.x <= 0 || inputSize.y <= 0 || inputIndex.x <= 0|| inputIndex.y <= 0) {
         inputSize.x = inputSize.y = 10;
@@ -34,7 +33,7 @@ Board::Board(cocos2d::Vec2 inputSize, cocos2d::Vec2 inputIndex) {
 Board::~Board() {}
 Board* Board::createBoardWithSizeAndIndex(cocos2d::Vec2 inputSize, cocos2d::Vec2 inputIndex) {
     Board * _board = new Board(inputSize, inputIndex);
-    if(_board && _board->init())
+    if(_board && _board->init() )
     {
         _board->autorelease();
         return _board;
@@ -83,47 +82,50 @@ void Board::RemoveAllPiecesOnBoard() {
         }
     }
 }
-int Board::InsertPieceByIndex(BoardPiece* piece, cocos2d::Vec2 index) {
+bool Board::InsertPieceByIndex(BoardPiece* piece, cocos2d::Vec2 index) {
     if(CheckIndex(index)) {
-        return 0;
-    } else {
         return itsTiles[ConvertFloatToInt(index.x)][ConvertFloatToInt(index.y)]->AddPiece(piece);
+    } else {
+        return false;
+
     }
 }
-int Board::InsertPieceByPosition(BoardPiece* piece, cocos2d::Vec2 position) {
+bool Board::InsertPieceByPosition(BoardPiece* piece, cocos2d::Vec2 position) {
     if(CheckPosition(position))
         return InsertPieceByIndex(piece, ConvertPositionToIndex(position));
     else
-        return 0;
+        return false;
 }
-int Board::RemovePieceByIndex(BoardPiece* piece, cocos2d::Vec2 index) {
+bool Board::RemovePieceByIndex(BoardPiece* piece, cocos2d::Vec2 index) {
     if(CheckIndex(index)) {
-        return 0;
+        return false;
     } else {
         return itsTiles[ConvertFloatToInt(index.x)][ConvertFloatToInt(index.y)]->RemovePiece(piece);
     }
 }
-int Board::RemovePieceByPosition(BoardPiece * piece, cocos2d::Vec2 position) {
+bool Board::RemovePieceByPosition(BoardPiece * piece, cocos2d::Vec2 position) {
     if(CheckPosition(position)) {
         return RemovePieceByPosition(piece, position);
     } else {
-        return 0;
+        return false;
     }
 }
-int Board::MovePieceByIndex(cocos2d::Vec2 idx1, cocos2d::Vec2 idx2) {
-    if( CheckIndex(idx1) == false || CheckIndex(idx2) == false) {
-        return 0;
+bool Board::MovePieceByIndex(cocos2d::Vec2 idxSrc, cocos2d::Vec2 idxDst) {
+    if( CheckIndex(idxSrc) == false || CheckIndex(idxDst) == false) {
+        return false;
     } else {
-        auto curPiece = GetPieceByIndex(idx1);
-        if(curPiece == NULL) {
-            return -1;
-        } else {
-            InsertPieceByIndex(curPiece, idx2);
-            return 1;
+        auto srcPiece = GetPieceByIndex(idxSrc);
+        auto dstPiece = GetPieceByIndex(idxDst);
+        if(srcPiece == NULL) {
+            return false;
+        } else if(dstPiece != NULL) {
+            RemovePieceByIndex(dstPiece, idxDst);
         }
+        InsertPieceByIndex(srcPiece, idxDst);
+        return true;
     }
 }
-int Board::MovePieceByPosition(cocos2d::Vec2 pos1, cocos2d::Vec2 pos2) {
+bool Board::MovePieceByPosition(cocos2d::Vec2 pos1, cocos2d::Vec2 pos2) {
     if(CheckPosition(pos1) && CheckPosition(pos2))
         return MovePieceByIndex(ConvertPositionToIndex(pos1), ConvertPositionToIndex(pos2));
     else

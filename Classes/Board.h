@@ -19,6 +19,7 @@ protected:
     cocos2d::Vec2 itsIndex;
     BoardTile *** itsTiles;
 protected:
+    Board();
     Board(cocos2d::Vec2, cocos2d::Vec2);
     ~Board();
     bool CheckIndex(cocos2d::Vec2&);
@@ -27,19 +28,20 @@ protected:
         return (int) std::floor(f+0.5);
     }
     cocos2d::Vec2 ConvertPositionToIndex(cocos2d::Vec2&);
+    bool InsertPieceByIndex(BoardPiece*,cocos2d::Vec2);
+    bool InsertPieceByPosition(BoardPiece*,cocos2d::Vec2);
+    bool RemovePieceByIndex(BoardPiece*,cocos2d::Vec2);
+    bool RemovePieceByPosition(BoardPiece*,cocos2d::Vec2);
+    void RemoveAllPiecesOnBoard();
 public:
     static Board* createBoardWithSizeAndIndex(cocos2d::Vec2, cocos2d::Vec2);
-    BoardPiece* GetPieceByIndex(cocos2d::Vec2);
-    BoardPiece* GetPieceByPosition(cocos2d::Vec2);
-    int InsertPieceByIndex(BoardPiece*,cocos2d::Vec2);
-    int InsertPieceByPosition(BoardPiece*,cocos2d::Vec2);
-    int RemovePieceByIndex(BoardPiece*,cocos2d::Vec2);
-    int RemovePieceByPosition(BoardPiece*,cocos2d::Vec2);
-    int MovePieceByIndex(cocos2d::Vec2,cocos2d::Vec2);
-    int MovePieceByPosition(cocos2d::Vec2,cocos2d::Vec2);
     cocos2d::Vec2 GetMaxSize();
     cocos2d::Vec2 GetMaxIndex();
-    void RemoveAllPiecesOnBoard();
+    BoardPiece* GetPieceByIndex(cocos2d::Vec2);
+    BoardPiece* GetPieceByPosition(cocos2d::Vec2);
+    bool MovePieceByIndex(cocos2d::Vec2,cocos2d::Vec2);
+    bool MovePieceByPosition(cocos2d::Vec2,cocos2d::Vec2);
+    friend class MyChessBoard;
 };
 
 #endif /* defined(__BoardGame__Board__) */

@@ -18,8 +18,8 @@ protected:
     ~BoardTile();
 public:
     static BoardTile* createBoardTile();
-    int AddPiece(BoardPiece*);
-    int RemovePiece(BoardPiece*);
+    bool AddPiece(BoardPiece*);
+    bool RemovePiece(BoardPiece*);
     BoardPiece* GetPiece();
 };
 
