@@ -111,7 +111,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "93"
             endingLineNumber = "93"
-            landmarkName = "Board::InsertPieceByIndex(BoardPiece* piece, cocos2d::Vec2 index)"
+            landmarkName = "Board::InsertPieceByPosition(BoardPiece* piece, cocos2d::Vec2 position)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

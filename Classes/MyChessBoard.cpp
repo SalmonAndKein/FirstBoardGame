@@ -22,6 +22,30 @@ MyChessBoard* MyChessBoard::createChessBoard() {
     CC_SAFE_DELETE(_board);
     return NULL;
 }
+int MyChessBoard::SearchAllMoveableSpacesByIndex(cocos2d::Vec2 index) {
+    if(CheckIndex(index)) {
+        int index_x = ConvertFloatToInt(index.x);
+        int index_y = ConvertFloatToInt(index.y);
+        auto curPiece = itsTiles[index_x][index_y]->GetPiece();
+        if( curPiece != NULL) {
+            for(int x=0; x<8; x++) {
+                for(int y=0; y<8; y++) {
+                    if(curPiece->CanMoveTo(cocos2d::Vec2(x,y),this)) {
+                        itsTiles[x][y]->Mark();
+                    }
+                }
+            }
+        }
+    }
+    return 0;
+}
+int MyChessBoard::SearchAllMoveableSpacesByPosition(cocos2d::Vec2 position) {
+    if(CheckPosition(position)) {
+        return SearchAllMoveableSpacesByIndex(ConvertPositionToIndex(position));
+    }
+    return 0;
+}
+
 void MyChessBoard::ResetBoard() {
     char initBoard[8][9] = {
         "RNBQKBNR",
@@ -81,6 +105,14 @@ void MyChessBoard::ResetBoard() {
                 auto piece = BoardPiece::createWithImageName(filename, player, type);
                 InsertPieceByIndex(piece, cocos2d::Vec2(x,y));
             }
+        }
+    }
+}
+
+void MyChessBoard::ResetAllMarkers() {
+    for(int x=0; x<8; x++) {
+        for(int y=0; y<8; y++) {
+            itsTiles[x][y]->UnMark();
         }
     }
 }

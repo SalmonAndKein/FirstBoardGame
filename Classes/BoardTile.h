@@ -14,6 +14,7 @@
 class BoardTile : public cocos2d::Node {
 protected:
     BoardPiece* itsPiece;
+    cocos2d::Sprite * itsMarker;
     BoardTile();
     ~BoardTile();
 public:
@@ -21,6 +22,9 @@ public:
     bool AddPiece(BoardPiece*);
     bool RemovePiece(BoardPiece*);
     BoardPiece* GetPiece();
+    void Mark();
+    void UnMark();
+    bool isMarked();
 };
 
 

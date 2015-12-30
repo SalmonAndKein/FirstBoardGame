@@ -25,6 +25,9 @@ protected:
 public:
     static MyChessBoard* createChessBoard();
     void ResetBoard();
+    int SearchAllMoveableSpacesByIndex(cocos2d::Vec2);
+    int SearchAllMoveableSpacesByPosition(cocos2d::Vec2);
+    void ResetAllMarkers();
 };
 
 #endif /* defined(__BoardGame__MyChessBoard__) */

@@ -10,6 +10,10 @@
 
 BoardTile::BoardTile() {
     itsPiece = NULL;
+    itsMarker = cocos2d::Sprite::create("mark.png");
+    this->addChild(itsMarker);
+    itsMarker->setVisible(false);
+    itsMarker->retain();
 }
 BoardTile::~BoardTile() {}
 BoardTile* BoardTile::createBoardTile() {
@@ -43,4 +47,13 @@ bool BoardTile::RemovePiece(BoardPiece* _removePiece) {
 }
 BoardPiece* BoardTile::GetPiece() {
     return itsPiece;
+}
+void BoardTile::Mark() {
+    itsMarker->setVisible(true);
+}
+void BoardTile::UnMark() {
+    itsMarker->setVisible(false);
+}
+bool BoardTile::isMarked() {
+    return itsMarker->isVisible();
 }

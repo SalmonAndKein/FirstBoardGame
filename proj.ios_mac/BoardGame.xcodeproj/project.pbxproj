@@ -59,6 +59,10 @@
 		521A8E6519F0C34300D177D7 /* Default-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 521A8E6319F0C34300D177D7 /* Default-736h@3x.png */; };
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
+		760377991A94977000055BFB /* ChessPiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 760377971A94977000055BFB /* ChessPiece.cpp */; };
+		7603779A1A94977000055BFB /* ChessPiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 760377971A94977000055BFB /* ChessPiece.cpp */; };
+		7603779D1A9498EC00055BFB /* ChessPieceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7603779B1A9498EC00055BFB /* ChessPieceNode.cpp */; };
+		7603779E1A9498EC00055BFB /* ChessPieceNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7603779B1A9498EC00055BFB /* ChessPieceNode.cpp */; };
 		76491A3E1A9202EA00789C5B /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76491A361A9202EA00789C5B /* Board.cpp */; };
 		76491A3F1A9202EA00789C5B /* Board.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76491A361A9202EA00789C5B /* Board.cpp */; };
 		76491A401A9202EA00789C5B /* BoardPiece.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76491A381A9202EA00789C5B /* BoardPiece.cpp */; };
@@ -71,6 +75,8 @@
 		768717931A64F2E600F05CE5 /* Blank_Piece.png in Resources */ = {isa = PBXBuildFile; fileRef = 768717911A64F2E600F05CE5 /* Blank_Piece.png */; };
 		76A910B21A9332AB0023E10A /* board11.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A910B11A9332AB0023E10A /* board11.png */; };
 		76A910B31A9332AB0023E10A /* board11.png in Resources */ = {isa = PBXBuildFile; fileRef = 76A910B11A9332AB0023E10A /* board11.png */; };
+		76A910B61A933DC50023E10A /* MyChessGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A910B41A933DC50023E10A /* MyChessGame.cpp */; };
+		76A910B71A933DC50023E10A /* MyChessGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 76A910B41A933DC50023E10A /* MyChessGame.cpp */; };
 		76BF11751A6566C900B1EB60 /* B4.png in Resources */ = {isa = PBXBuildFile; fileRef = 76BF11671A6566C900B1EB60 /* B4.png */; };
 		76BF11761A6566C900B1EB60 /* B4.png in Resources */ = {isa = PBXBuildFile; fileRef = 76BF11671A6566C900B1EB60 /* B4.png */; };
 		76BF11771A6566C900B1EB60 /* B6.png in Resources */ = {isa = PBXBuildFile; fileRef = 76BF11681A6566C900B1EB60 /* B6.png */; };
@@ -193,6 +199,10 @@
 		521A8E6219F0C34300D177D7 /* Default-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-667h@2x.png"; sourceTree = "<group>"; };
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
+		760377971A94977000055BFB /* ChessPiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessPiece.cpp; sourceTree = "<group>"; };
+		760377981A94977000055BFB /* ChessPiece.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessPiece.h; sourceTree = "<group>"; };
+		7603779B1A9498EC00055BFB /* ChessPieceNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ChessPieceNode.cpp; sourceTree = "<group>"; };
+		7603779C1A9498EC00055BFB /* ChessPieceNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChessPieceNode.h; sourceTree = "<group>"; };
 		76491A361A9202EA00789C5B /* Board.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Board.cpp; sourceTree = "<group>"; };
 		76491A371A9202EA00789C5B /* Board.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Board.h; sourceTree = "<group>"; };
 		76491A381A9202EA00789C5B /* BoardPiece.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BoardPiece.cpp; sourceTree = "<group>"; };
@@ -203,6 +213,8 @@
 		76491A3D1A9202EA00789C5B /* MyChessBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChessBoard.h; sourceTree = "<group>"; };
 		768717911A64F2E600F05CE5 /* Blank_Piece.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blank_Piece.png; sourceTree = "<group>"; };
 		76A910B11A9332AB0023E10A /* board11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = board11.png; sourceTree = "<group>"; };
+		76A910B41A933DC50023E10A /* MyChessGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyChessGame.cpp; sourceTree = "<group>"; };
+		76A910B51A933DC50023E10A /* MyChessGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyChessGame.h; sourceTree = "<group>"; };
 		76BF11671A6566C900B1EB60 /* B4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = B4.png; sourceTree = "<group>"; };
 		76BF11681A6566C900B1EB60 /* B6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = B6.png; sourceTree = "<group>"; };
 		76BF11691A6566C900B1EB60 /* B3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = B3.png; sourceTree = "<group>"; };
@@ -419,10 +431,16 @@
 				76491A371A9202EA00789C5B /* Board.h */,
 				76491A381A9202EA00789C5B /* BoardPiece.cpp */,
 				76491A391A9202EA00789C5B /* BoardPiece.h */,
+				760377971A94977000055BFB /* ChessPiece.cpp */,
+				760377981A94977000055BFB /* ChessPiece.h */,
+				7603779B1A9498EC00055BFB /* ChessPieceNode.cpp */,
+				7603779C1A9498EC00055BFB /* ChessPieceNode.h */,
 				76491A3A1A9202EA00789C5B /* BoardTile.cpp */,
 				76491A3B1A9202EA00789C5B /* BoardTile.h */,
 				76491A3C1A9202EA00789C5B /* MyChessBoard.cpp */,
 				76491A3D1A9202EA00789C5B /* MyChessBoard.h */,
+				76A910B41A933DC50023E10A /* MyChessGame.cpp */,
+				76A910B51A933DC50023E10A /* MyChessGame.h */,
 			);
 			name = Board;
 			sourceTree = "<group>";
@@ -643,12 +661,15 @@
 			files = (
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* BoardGameLayer.cpp in Sources */,
+				760377991A94977000055BFB /* ChessPiece.cpp in Sources */,
 				76491A401A9202EA00789C5B /* BoardPiece.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				76491A421A9202EA00789C5B /* BoardTile.cpp in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
 				76491A441A9202EA00789C5B /* MyChessBoard.cpp in Sources */,
+				7603779D1A9498EC00055BFB /* ChessPieceNode.cpp in Sources */,
+				76A910B61A933DC50023E10A /* MyChessGame.cpp in Sources */,
 				76491A3E1A9202EA00789C5B /* Board.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -657,12 +678,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7603779A1A94977000055BFB /* ChessPiece.cpp in Sources */,
+				7603779E1A9498EC00055BFB /* ChessPieceNode.cpp in Sources */,
 				76491A451A9202EA00789C5B /* MyChessBoard.cpp in Sources */,
 				76491A431A9202EA00789C5B /* BoardTile.cpp in Sources */,
 				46880B8919C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				76491A3F1A9202EA00789C5B /* Board.cpp in Sources */,
 				503AE10517EB98FF00D1A890 /* main.cpp in Sources */,
 				46880B8B19C43A87006E1F66 /* BoardGameLayer.cpp in Sources */,
+				76A910B71A933DC50023E10A /* MyChessGame.cpp in Sources */,
 				76491A411A9202EA00789C5B /* BoardPiece.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

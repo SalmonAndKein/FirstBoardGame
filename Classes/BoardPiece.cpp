@@ -35,3 +35,6 @@ int BoardPiece::GetPlayer() {
 int BoardPiece::GetType() {
     return itsType;
 }
+bool BoardPiece::CanMoveTo(cocos2d::Vec2 index, Board * _board) {
+    return true;
+}
